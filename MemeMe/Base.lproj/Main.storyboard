@@ -50,11 +50,18 @@
                             <outlet property="delegate" destination="mon-EY-UtY" id="Qyo-io-XEo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="VGQ-Md-c2W"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="VGQ-Md-c2W">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qXx-pA-3jA">
+                            <connections>
+                                <segue destination="4TN-xy-ncm" kind="presentation" id="rap-li-oEb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOl-wg-PF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="-116.49175412293854"/>
+            <point key="canvasLocation" x="164" y="-208"/>
         </scene>
         <!--Meme Me Collection View Controller-->
         <scene sceneID="UBx-2p-ven">
@@ -85,11 +92,47 @@
                             <outlet property="delegate" destination="grK-Wm-7Gd" id="zwj-e3-ezR"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="RMv-7c-sf7"/>
+                    <navigationItem key="navigationItem" id="RMv-7c-sf7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6tr-TB-VZV">
+                            <connections>
+                                <segue destination="4TN-xy-ncm" kind="presentation" id="XF8-Be-sHm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VK-X9-bWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="598.65067466266873"/>
+            <point key="canvasLocation" x="164" y="609"/>
+        </scene>
+        <!--MemeMe-->
+        <scene sceneID="mrm-Xt-iML">
+            <objects>
+                <viewController title="MemeMe" id="nnJ-ls-dzx" customClass="MemeMeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2ms-xK-rIL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iht-FA-YWR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w3X-NJ-TbA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="camera" id="GZh-Qb-udg"/>
+                        <barButtonItem systemItem="organize" id="R2M-zq-YkN"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="q37-zN-A7Q">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cwk-AB-uvD">
+                            <connections>
+                                <action selector="cancel:" destination="nnJ-ls-dzx" id="u4v-xr-1or"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3t6-DR-5yo"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7t-ce-2QR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477.5999999999999" y="218.1409295352324"/>
         </scene>
         <!--Table Navigation-->
         <scene sceneID="uJH-7h-M2g">
@@ -108,7 +151,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzU-vN-I6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775.20000000000005" y="-116.49175412293854"/>
+            <point key="canvasLocation" x="-775" y="-208"/>
         </scene>
         <!--Collection Navigation-->
         <scene sceneID="1la-H1-wfa">
@@ -127,7 +170,32 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ocv-zh-MZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775.20000000000005" y="598.65067466266873"/>
+            <point key="canvasLocation" x="-775" y="610"/>
+        </scene>
+        <!--MemeMe Navigation-->
+        <scene sceneID="mdj-cf-7E0">
+            <objects>
+                <navigationController title="MemeMe Navigation" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="4TN-xy-ncm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NRZ-5t-Lpd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DQz-1R-M5U">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="nnJ-ls-dzx" kind="relationship" relationship="rootViewController" id="QGC-fA-1MF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IvA-lq-lMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="218"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XF8-Be-sHm"/>
+    </inferredMetricsTieBreakers>
 </document>
