@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -115,11 +116,48 @@
                     <view key="view" contentMode="scaleToFill" id="w3X-NJ-TbA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FEX-2M-iTk">
+                                <rect key="frame" x="16" y="79" width="343" height="529"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="SJa-1d-qAP">
+                                <rect key="frame" x="16" y="545" width="343" height="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" placeholder="TOP" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lhZ-6V-glz">
+                                <rect key="frame" x="16" y="94" width="343" height="48"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FEX-2M-iTk" firstAttribute="top" secondItem="2ms-xK-rIL" secondAttribute="bottom" constant="15" id="3np-7Y-5bT"/>
+                            <constraint firstItem="Iht-FA-YWR" firstAttribute="top" secondItem="SJa-1d-qAP" secondAttribute="bottom" constant="30" id="4Bl-IG-nsv"/>
+                            <constraint firstItem="SJa-1d-qAP" firstAttribute="leading" secondItem="w3X-NJ-TbA" secondAttribute="leadingMargin" id="Aiz-TT-Ulq"/>
+                            <constraint firstItem="lhZ-6V-glz" firstAttribute="top" secondItem="2ms-xK-rIL" secondAttribute="bottom" constant="30" id="bvp-6I-Mfa"/>
+                            <constraint firstItem="FEX-2M-iTk" firstAttribute="leading" secondItem="w3X-NJ-TbA" secondAttribute="leadingMargin" id="dDs-7X-67h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lhZ-6V-glz" secondAttribute="trailing" id="dwE-gG-plg"/>
+                            <constraint firstItem="Iht-FA-YWR" firstAttribute="top" secondItem="FEX-2M-iTk" secondAttribute="bottom" constant="15" id="gZ7-j1-WhZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FEX-2M-iTk" secondAttribute="trailing" id="jXq-qK-OqE"/>
+                            <constraint firstItem="lhZ-6V-glz" firstAttribute="leading" secondItem="w3X-NJ-TbA" secondAttribute="leadingMargin" id="sdY-ui-aga"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SJa-1d-qAP" secondAttribute="trailing" id="z2H-hd-uap"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="GZh-Qb-udg"/>
-                        <barButtonItem systemItem="organize" id="R2M-zq-YkN"/>
+                        <barButtonItem systemItem="camera" id="GZh-Qb-udg">
+                            <connections>
+                                <action selector="pickAnCamera:" destination="nnJ-ls-dzx" id="WyQ-MW-2o7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="organize" id="R2M-zq-YkN">
+                            <connections>
+                                <action selector="pickAnImage:" destination="nnJ-ls-dzx" id="73Q-eO-FlD"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="q37-zN-A7Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cwk-AB-uvD">
@@ -127,8 +165,19 @@
                                 <action selector="cancel:" destination="nnJ-ls-dzx" id="u4v-xr-1or"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3t6-DR-5yo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3t6-DR-5yo">
+                            <connections>
+                                <action selector="share:" destination="nnJ-ls-dzx" id="jlO-sB-x0i"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bottomTextField" destination="SJa-1d-qAP" id="Pyp-cg-v18"/>
+                        <outlet property="cameraButton" destination="GZh-Qb-udg" id="62M-jd-Bh1"/>
+                        <outlet property="imagePickerView" destination="FEX-2M-iTk" id="GzF-AW-iSc"/>
+                        <outlet property="shareButton" destination="3t6-DR-5yo" id="hjw-D6-bxI"/>
+                        <outlet property="topTextField" destination="lhZ-6V-glz" id="n9F-ue-kOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7t-ce-2QR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
