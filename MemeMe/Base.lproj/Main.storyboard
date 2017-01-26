@@ -174,7 +174,7 @@
                     <connections>
                         <outlet property="bottomTextField" destination="SJa-1d-qAP" id="Pyp-cg-v18"/>
                         <outlet property="cameraButton" destination="GZh-Qb-udg" id="62M-jd-Bh1"/>
-                        <outlet property="imagePickerView" destination="FEX-2M-iTk" id="GzF-AW-iSc"/>
+                        <outlet property="imageView" destination="FEX-2M-iTk" id="RPr-Lo-oGa"/>
                         <outlet property="shareButton" destination="3t6-DR-5yo" id="hjw-D6-bxI"/>
                         <outlet property="topTextField" destination="lhZ-6V-glz" id="n9F-ue-kOe"/>
                     </connections>

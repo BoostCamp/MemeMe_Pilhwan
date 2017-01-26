@@ -10,7 +10,7 @@ import UIKit
 
 class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -41,7 +41,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        if imagePickerView != nil, (imagePickerView.image != nil) {
+        if imageView != nil, (imageView.image != nil) {
             shareButton.isEnabled = true
         } else {
             shareButton.isEnabled = false
@@ -60,18 +60,23 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imagePickerView.image = image
+            imageView.image = image
         }
         
         dismiss(animated: true, completion: nil)
     }
     
     func keyboardWillShow(_ notification:Notification) {
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        }
+        
     }
     
     func keyboardWillHide(_ notification:Notification) {
-        view.frame.origin.y = 0
+        if bottomTextField.isFirstResponder{
+            view.frame.origin.y = 0
+        }
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
@@ -93,12 +98,40 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
+    
+    func save(_ memedImage: UIImage) {
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
+        print(meme.topText)
+        /* Add meme to Memes collection. */
+        //memes.add(meme)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return memedImage
+    }
 
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func share(_ sender: Any) {
+        let memedImage = generateMemedImage()
+        
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = { activity, success, items, error in
+            if success {
+                self.save(memedImage)
+            }
+        }
+        present(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func pickAnCamera(_ sender: Any) {
