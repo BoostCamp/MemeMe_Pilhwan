@@ -29,11 +29,11 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         
-//        topTextField.defaultTextAttributes = memeTextAttributes
-//        bottomTextField.defaultTextAttributes = memeTextAttributes
-        
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
+        
+        //        topTextField.defaultTextAttributes = memeTextAttributes
+        //        bottomTextField.defaultTextAttributes = memeTextAttributes
     }
     
     override func viewWillAppear(_ animated: Bool) {

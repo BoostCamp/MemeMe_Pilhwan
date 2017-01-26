@@ -88,13 +88,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeMeCollectionCell" id="M3J-YY-gt9">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeMeCollectionCell" id="M3J-YY-gt9" customClass="MemeMeCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGM-Bb-xAT">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="GGM-Bb-xAT" firstAttribute="width" secondItem="M3J-YY-gt9" secondAttribute="width" id="B6t-VR-Rku"/>
+                                    <constraint firstItem="GGM-Bb-xAT" firstAttribute="centerX" secondItem="M3J-YY-gt9" secondAttribute="centerX" id="EkO-gQ-wxO"/>
+                                    <constraint firstItem="GGM-Bb-xAT" firstAttribute="centerY" secondItem="M3J-YY-gt9" secondAttribute="centerY" id="h8q-jQ-uC1"/>
+                                    <constraint firstItem="GGM-Bb-xAT" firstAttribute="height" secondItem="M3J-YY-gt9" secondAttribute="height" id="vyv-2L-1Vo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="GGM-Bb-xAT" id="AOn-8n-Gh0"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
