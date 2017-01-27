@@ -128,6 +128,11 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         let memedImage = generateMemedImage()
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        //FIX Start: UIActivityViewController in Swift Crashes on iPad
+        if let popoverPresentationController = activityViewController.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+        }
+        //FIX End: UIActivityViewController in Swift Crashes on iPad
         activityViewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
                 self.save(memedImage)
