@@ -41,11 +41,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pnr-ol-lri" id="gGf-Jq-fWu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7e5-SH-JaN">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -213,7 +213,9 @@
         <scene sceneID="uJH-7h-M2g">
             <objects>
                 <navigationController title="Table Navigation" automaticallyAdjustsScrollViewInsets="NO" id="lPO-vk-qPn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="U6b-Xk-FMX"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="menubutton" id="U6b-Xk-FMX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aoP-lI-Rv9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -232,7 +234,7 @@
         <scene sceneID="1la-H1-wfa">
             <objects>
                 <navigationController title="Collection Navigation" automaticallyAdjustsScrollViewInsets="NO" id="nSQ-F1-t5d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="AVU-ao-rmH"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="photos_icon" id="AVU-ao-rmH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qEk-5B-X7N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -270,7 +272,11 @@
             <point key="canvasLocation" x="1684" y="218"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menubutton" width="20" height="18"/>
+        <image name="photos_icon" width="15" height="15"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XF8-Be-sHm"/>
+        <segue reference="rap-li-oEb"/>
     </inferredMetricsTieBreakers>
 </document>
