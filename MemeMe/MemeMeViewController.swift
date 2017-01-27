@@ -89,7 +89,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func subscribeToKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
@@ -101,10 +100,11 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func save(_ memedImage: UIImage) {
         
+        
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+        dataCenter.appendMeme(meme)
+        dataCenter.save()
         
         dismiss(animated: true, completion: nil)
     }

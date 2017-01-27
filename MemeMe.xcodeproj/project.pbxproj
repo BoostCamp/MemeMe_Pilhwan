@@ -16,6 +16,7 @@
 		5A2349941E39965500A46B11 /* MemeMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2349931E39965500A46B11 /* MemeMeTableViewController.swift */; };
 		5A2349961E39A4CF00A46B11 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2349951E39A4CF00A46B11 /* Meme.swift */; };
 		5A23499A1E39EA7700A46B11 /* MemeMeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2349991E39EA7700A46B11 /* MemeMeCollectionViewCell.swift */; };
+		5A7D5DAC1E3BD78300A0EC0C /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7D5DAB1E3BD78300A0EC0C /* DataCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5A2349931E39965500A46B11 /* MemeMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMeTableViewController.swift; sourceTree = "<group>"; };
 		5A2349951E39A4CF00A46B11 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		5A2349991E39EA7700A46B11 /* MemeMeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMeCollectionViewCell.swift; sourceTree = "<group>"; };
+		5A7D5DAB1E3BD78300A0EC0C /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				5A2349931E39965500A46B11 /* MemeMeTableViewController.swift */,
 				5A2349951E39A4CF00A46B11 /* Meme.swift */,
 				5A2349991E39EA7700A46B11 /* MemeMeCollectionViewCell.swift */,
+				5A7D5DAB1E3BD78300A0EC0C /* DataCenter.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				5A2349921E39964200A46B11 /* MemeMeCollectionViewController.swift in Sources */,
 				5A2349821E38B52400A46B11 /* MemeMeViewController.swift in Sources */,
 				5A23499A1E39EA7700A46B11 /* MemeMeCollectionViewCell.swift in Sources */,
+				5A7D5DAC1E3BD78300A0EC0C /* DataCenter.swift in Sources */,
 				5A2349801E38B52400A46B11 /* AppDelegate.swift in Sources */,
 				5A2349941E39965500A46B11 /* MemeMeTableViewController.swift in Sources */,
 				5A2349961E39A4CF00A46B11 /* Meme.swift in Sources */,
