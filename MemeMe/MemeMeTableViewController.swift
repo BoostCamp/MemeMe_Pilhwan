@@ -38,15 +38,14 @@ class MemeMeTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "showDetail") {
+            if let viewController = segue.destination as? MemeMeDetailViewController, let indexPath = tableView.indexPathForSelectedRow {
+                let meme = memes[(indexPath as NSIndexPath).row]
+                viewController.meme = meme
+            }
+        }
     }
-    */
 
 }

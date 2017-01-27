@@ -28,6 +28,12 @@ class DataCenter {
         memes.append(meme)
     }
     
+    func removeMeme(_ meme:Meme) {
+        if let index = memes.index(of: meme) {
+            memes.remove(at: index)
+        }
+    }
+    
     func save() {
         NSKeyedArchiver.archiveRootObject(self.memes, toFile: self.filePath)
     }
