@@ -8,10 +8,11 @@
 
 import UIKit
 
-class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeMeEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var photoLibButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -41,6 +42,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         subscribeToKeyboardNotifications()
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        photoLibButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
         
         if imageView != nil, (imageView.image != nil) {
             shareButton.isEnabled = true
@@ -142,13 +144,13 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     @IBAction func cancel(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "Would you like to cancel?", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Would you like to exit in edit mode?", message: nil, preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { (action: UIAlertAction!) in
+        alertController.addAction(UIAlertAction(title: "Exit", style: .default) { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
             }
         )
-        alertController.addAction(UIAlertAction(title: "Continue", style: .default) { (action: UIAlertAction!) in
+        alertController.addAction(UIAlertAction(title: "No", style: .default) { (action: UIAlertAction!) in
             alertController.dismiss(animated: true, completion: nil)
             }
         )

@@ -18,16 +18,17 @@ class MemeMeDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        tabBarController?.tabBar.isHidden = false
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.imageView.image = meme.memedImage
         
         tabBarController?.tabBar.isHidden = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     
     @IBAction func removeMeme(_ sender: Any) {
         
@@ -54,7 +55,7 @@ class MemeMeDetailViewController: UIViewController {
         
         if(segue.identifier == "showEdit") {
             if let destinationNavigationController = segue.destination as? UINavigationController,
-                let viewController = destinationNavigationController.topViewController as? MemeMeViewController {
+                let viewController = destinationNavigationController.topViewController as? MemeMeEditViewController {
                 
                 viewController.meme = meme
             }
