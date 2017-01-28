@@ -22,11 +22,6 @@ class MemeMeDetailViewController: UIViewController {
         
         tabBarController?.tabBar.isHidden = false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.imageView.image = meme.memedImage
@@ -35,23 +30,36 @@ class MemeMeDetailViewController: UIViewController {
     }
     
     @IBAction func removeMeme(_ sender: Any) {
-        dataCenter.removeMeme(meme)
-        dataCenter.save()
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
+        
+        let alertController = UIAlertController(title: "Would you like to remove this meme?", message: nil, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Remove", style: .default) { (action: UIAlertAction!) in
+            
+            dataCenter.removeMeme(self.meme)
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
+            }
+            }
+        )
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+            }
+        )
+        
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "showEdit") {
+            if let destinationNavigationController = segue.destination as? UINavigationController,
+                let viewController = destinationNavigationController.topViewController as? MemeMeViewController {
+                
+                viewController.meme = meme
+            }
         }
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

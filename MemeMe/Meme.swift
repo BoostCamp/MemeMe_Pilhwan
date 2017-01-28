@@ -14,6 +14,11 @@ class Meme : NSObject, NSCoding {
     var originalImage: UIImage!
     var memedImage: UIImage!
     
+    override init() {
+        self.topText = "TOP"
+        self.bottomText = "BOTTOM"
+    }
+    
     init(topText:String!, bottomText:String!, originalImage:UIImage!, memedImage:UIImage!) {
         self.topText = topText
         self.bottomText = bottomText

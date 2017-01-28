@@ -16,6 +16,8 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    var meme = Meme()
+    
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
         NSForegroundColorAttributeName: UIColor.white,
@@ -32,8 +34,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
         
-        //        topTextField.defaultTextAttributes = memeTextAttributes
-        //        bottomTextField.defaultTextAttributes = memeTextAttributes
+        loadMeme(meme)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +56,18 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadMeme(_ meme:Meme) {
+        if let image = meme.originalImage {
+            imageView.image = image
+        }
+        if let topText = meme.topText {
+            topTextField.text = topText
+        }
+        if let bottomText = meme.bottomText {
+            bottomTextField.text = bottomText
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -100,11 +113,18 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func save(_ memedImage: UIImage) {
         
+        if let topText = topTextField.text {
+            meme.topText = topText
+        }
+        if let bottomText = bottomTextField.text {
+            meme.bottomText = bottomText
+        }
+        if let originalImage = imageView.image {
+            meme.originalImage = originalImage
+        }
+        meme.memedImage = memedImage
         
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
-        
-        dataCenter.appendMeme(meme)
-        dataCenter.save()
+        dataCenter.saveMeme(meme)
         
         dismiss(animated: true, completion: nil)
     }
@@ -121,18 +141,30 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 
     @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        let alertController = UIAlertController(title: "Would you like to cancel?", message: nil, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+            }
+        )
+        alertController.addAction(UIAlertAction(title: "Continue", style: .default) { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+            }
+        )
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func share(_ sender: Any) {
         let memedImage = generateMemedImage()
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        //FIX Start: UIActivityViewController in Swift Crashes on iPad
+        //BUG FIX Start: UIActivityViewController in Swift Crashes on iPad
         if let popoverPresentationController = activityViewController.popoverPresentationController {
             popoverPresentationController.sourceView = self.view
         }
-        //FIX End: UIActivityViewController in Swift Crashes on iPad
+        //BUG FIX End: UIActivityViewController in Swift Crashes on iPad
         activityViewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
                 self.save(memedImage)

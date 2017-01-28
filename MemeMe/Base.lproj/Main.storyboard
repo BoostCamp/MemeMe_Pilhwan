@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -67,7 +68,7 @@
                     <navigationItem key="navigationItem" id="VGQ-Md-c2W">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qXx-pA-3jA">
                             <connections>
-                                <segue destination="4TN-xy-ncm" kind="presentation" id="rap-li-oEb"/>
+                                <segue destination="4TN-xy-ncm" kind="presentation" identifier="showEdit" id="rap-li-oEb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -192,7 +193,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="q37-zN-A7Q">
+                    <navigationItem key="navigationItem" title="Edit Mode" id="q37-zN-A7Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cwk-AB-uvD">
                             <connections>
                                 <action selector="cancel:" destination="nnJ-ls-dzx" id="u4v-xr-1or"/>
@@ -281,12 +282,19 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="pif-n8-7z7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="RJA-PW-F3e">
-                            <connections>
-                                <action selector="removeMeme:" destination="nrt-Bx-7EB" id="wiO-cT-fwb"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="View Mode" id="pif-n8-7z7">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="trash" id="RJA-PW-F3e">
+                                <connections>
+                                    <action selector="removeMeme:" destination="nrt-Bx-7EB" id="wiO-cT-fwb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="UcX-9g-6Sm">
+                                <connections>
+                                    <segue destination="4TN-xy-ncm" kind="presentation" identifier="showEdit" id="Zt1-rh-9P8"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -325,7 +333,7 @@
         <image name="photos_icon" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rap-li-oEb"/>
         <segue reference="NOI-Tp-ccI"/>
+        <segue reference="Zt1-rh-9P8"/>
     </inferredMetricsTieBreakers>
 </document>

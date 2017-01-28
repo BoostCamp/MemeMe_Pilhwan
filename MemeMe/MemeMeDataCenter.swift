@@ -8,10 +8,10 @@
 
 import Foundation
 
-let dataCenter:DataCenter = DataCenter()
+let dataCenter:MemeMeDataCenter = MemeMeDataCenter()
 let fileName = "MemeMe.dat"
 
-class DataCenter {
+class MemeMeDataCenter {
     
     var memes:[Meme] = []
     
@@ -24,14 +24,22 @@ class DataCenter {
         }
     }
     
-    func appendMeme(_ meme:Meme) {
-        memes.append(meme)
+    func saveMeme(_ meme:Meme) {
+        if let index = memes.index(of: meme) {
+            memes[index] = meme
+        } else {
+            memes.append(meme)
+        }
+        
+        save()
     }
     
     func removeMeme(_ meme:Meme) {
         if let index = memes.index(of: meme) {
             memes.remove(at: index)
         }
+        
+        save()
     }
     
     func save() {
