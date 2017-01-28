@@ -11,6 +11,9 @@
 * NSKeyedArchiver / NSKeyedUnArchiver 를 이용하여 사용자가 만든 meme를 file로 저장합니다. 영구적으로 사용자가 만든 meme를 저장합니다.
 * object를 NSCoding 프로토콜에 따라 encoding/decoding 처리를 하여 완료했습니다. 
 
+#### Archive Test 영상
+[![Archive Test 영상](https://img.youtube.com/vi/e0RO4NavdnQ/0.jpg)](https://youtu.be/e0RO4NavdnQ)
+
 #### Reference
 * [tryhelloworld / 스위프트 입문(링고스타) - 아카이브](http://tryhelloworld.co.kr/courses/ios-swift입문/lessons/아카이브1)
 * [how to save and load objects with nskeyedarchiver and nskeyedunarchiver](https://www.hackingwithswift.com/example-code/system/how-to-save-and-load-objects-with-nskeyedarchiver-and-nskeyedunarchiver)
