@@ -31,7 +31,7 @@
 ### Edit Mode
 <span>
   <img src="image/EditMode01.png" width="200">
-  <img src="image/EditMode01.png" width="200">
+  <img src="image/EditMode02.png" width="200">
 </span>
 
 * 이미 만든 Meme를 편집 할 수 있는 화면입니다. 기존의 Meme 추가 화면을 기능 확장해 편집 기능으로도 사용할 수 있도록 변경 했습니다.
